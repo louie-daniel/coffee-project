@@ -48,6 +48,31 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+// for(var i = 0; i <= coffees.length; i++){
+//     document.getElementById("name") = coffees[i].name;
+//     document.getElementById("roast") = coffees[i].roast;
+// }
+
+// for (var i = 0; i < coffees.length; i++) {
+//     ("<div class="results" />").text(coffees[i]).appendTo('body');
+// }
+
+var temp;
+
+for (var i = 0; i < coffees.length; i++) {
+    temp = document.createElement('div');
+    temp.className = 'results';
+    temp.appendChild(createElement('h2'));
+    temp.className = "names";
+    temp.innerHTML = coffees[i].name;
+    temp = document.createElement('p');
+    temp.className = "roast";
+    temp.innerHTML = coffees[i].roast;
+    // temp.innerHTML = coffees[i].name + " "+ coffees[i].roast;
+    document.getElementsByTagName('body')[0].appendChild(temp);
+}
+
+
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
