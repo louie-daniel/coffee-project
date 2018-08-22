@@ -1,11 +1,11 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
+    var html = '<div class="coffee float-left ml-5 mr-5 mb-4">';
     // html += '<td>' + coffee.id + '</td>';
-    html += '<h2>' + coffee.name + '</h2>';
-    html += '<p>' + coffee.roast + '</p>';
-    html += '</tr>';
+    html += '<h2 class="float-left m-1">' + coffee.name + '</h2>';
+    html += '<p class="float-left m-1 text-align-bottom pt-3 text-secondary">' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }
@@ -56,21 +56,21 @@ var coffees = [
 // for (var i = 0; i < coffees.length; i++) {
 //     ("<div class="results" />").text(coffees[i]).appendTo('body');
 // }
-
-var temp;
-
-for (var i = 0; i < coffees.length; i++) {
-    temp = document.createElement('div');
-    temp.className = 'results';
-    temp.appendChild(createElement('h2'));
-    temp.className = "names";
-    temp.innerHTML = coffees[i].name;
-    temp = document.createElement('p');
-    temp.className = "roast";
-    temp.innerHTML = coffees[i].roast;
-    // temp.innerHTML = coffees[i].name + " "+ coffees[i].roast;
-    document.getElementsByTagName('body')[0].appendChild(temp);
-}
+//
+// var temp;
+//
+// for (var i = 0; i < coffees.length; i++) {
+//     temp = document.createElement('div');
+//     temp.className = 'results';
+//     temp.appendChild(createElement('h2'));
+//     temp.className = "names";
+//     temp.innerHTML = coffees[i].name;
+//     temp = document.createElement('p');
+//     temp.className = "roast";
+//     temp.innerHTML = coffees[i].roast;
+//     temp.innerHTML = coffees[i].name + " "+ coffees[i].roast;
+//     document.getElementsByTagName('body')[0].appendChild(temp);
+// }
 
 
 var tbody = document.querySelector('#coffees');
