@@ -11,20 +11,8 @@
     <hr>
 
     <main class="container-fluid row">
-    <!--<table>-->
-    <!--<thead>-->
-    <!--<tr>-->
-    <!--<th>ID</th>-->
-    <!--<div class="container-fluid col-6">-->
-        <!--<h2 id="name">NAME</h2>-->
-        <!--<p id="roast">ROAST</p>-->
-        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash;</thead>&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<tbody id="coffees"></tbody>&ndash;&gt;-->
-        <!--&lt;!&ndash;</table>&ndash;&gt;-->
-    <!--</div>-->
+
         <div class="container-fluid col-6">
-            <div class="row">
                 <table>
                     <!--<thead>-->
                     <!--<tr>-->
@@ -33,10 +21,14 @@
                         <!--<th>ROAST</th>-->
                     <!--</tr>-->
                     <!--</thead>-->
-                    <tbody id="coffees"></tbody>
+                    <tbody id="coffees" class="row"></tbody>
                 </table>
             </div>
         </div>
+
+
+
+
     <section class="container-fluid col-6">
     <form class="mr-0 pb-1">
         <li for = "roast-selection" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
@@ -46,33 +38,40 @@
             <option>dark</option>
         </select>
         </li>
-            <li class="list-group-item list-group-item-action border-0">
+            <li for="name-selection" class="list-group-item list-group-item-action border-0">
                 <div class="form-group">
                     <label for="coffeeName"><strong>Coffee Name</strong></label>
-                    <input type="text" class="form-control" id="coffeeName">
-                    <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                    <input type="text" class="form-control" id="name-selection" onkeyup="myFunction()">
                 </div>
             </li>
         <button id="submit" type="submit" class="btn btn-primary w-100">SUBMIT</button>
     </form>
-        <h2 class = "text-center pt-2">Add a Coffee</h2>
-        <form class="mr-0">
-            <li for = "roast-selection" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
-                <select id ="roast-selection" class = "custom-select custom-select">
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
-            </li>
-            <li class="list-group-item list-group-item-action border-0">
-                <div class="form-group">
-                    <label for="coffeeName"><strong>Coffee Name</strong></label>
-                    <input type="text" class="form-control" id="coffeeName">
-                    <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-                </div>
-            </li>
-            <button id="submit" type="submit" class="btn btn-primary w-100">SUBMIT</button>
-        </form>
+
+
+
+    <h2 class = "text-center pt-2">Add a Coffee</h2>
+
+
+
+
+
+    <form class="mr-0">
+        <li for = "roast-selection" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
+            <select id ="roast-selection" class = "custom-select custom-select">
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+            </select>
+        </li>
+        <li class="list-group-item list-group-item-action border-0">
+            <div class="form-group">
+                <label for="coffeeName"><strong>Coffee Name</strong></label>
+                <input type="text" class="form-control" id="coffeeName">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+        </li>
+        <button id="submit" type="submit" class="btn btn-primary w-100">SUBMIT</button>
+    </form>
 
 
         <!--<a href="#!" class="list-group-item list-group-item-action card-header">Sauce</a>-->
