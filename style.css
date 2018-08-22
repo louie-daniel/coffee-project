@@ -10,9 +10,23 @@ td, th {
 
 h1 {
     text-align: center;
+    top calc(50% - .75em);
 }
 
 .results{
     color: black;
 
 }
+
+img {
+    height: 300px;
+    display: block;
+
+
+}
+
+.jumbotron {
+    position: relative;
+    /*background-image: url('/coffee-project/coffee-beans.jpg');*/
+}
+
