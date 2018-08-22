@@ -1,4 +1,10 @@
-"use strict"
+"use strict";
+
+var tbody = document.querySelector('#coffees');
+var submitButton = document.querySelector('#submit');
+var roastSelection = document.querySelector('#roast-selection');
+var nameSelection = document.querySelector('#name-selection');
+
 
 function renderCoffee(coffee) {
     var html = '<div class="d-block col-6 coffee mb-4">';
@@ -21,15 +27,25 @@ function renderCoffees(coffees) {
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
-    var selectedName = nameSelection.value.toLowerCase();
+    var selectedName = nameSelection.value;
+    var lowercaseName = selectedName.toLowerCase();
     var filteredCoffees = [];
-    console.log(selectedName);
-    console.log(selectedRoast)
+    console.log(selectedRoast);
     coffees.forEach(function(coffee) {
-        var coffeeNames = coffee.name.toLowerCase();
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
+        if (coffee.name.toLowerCase() == lowercaseName) {
+            if (coffee.roast === selectedRoast) {
+                filteredCoffees.push(coffee);
+                console.log(selectedName);
+                console.log(selectedRoast);
+            }else{
+                filteredCoffees.push(coffee);
+                console.log(selectedName);
+                console.log(selectedRoast);
+            }
         }
+
+
+
 
         // Attempted to sort coffee by name with else if after sorting by roast in the if statement
         // else if(selectedName === ""){
@@ -74,35 +90,45 @@ coffees.forEach(
 )
 
 console.log(nameList);
+var selectedName = nameSelection.value;
 
 
 function myFunction() {
-    var input, filter, ul, li, a, i;
-    var selectedName = nameSelection.value.toLowerCase();
+    // e.preventDefault(); // don't submit the form, we just want to update the data
+    //
+    // var input, filter, ul, li, a, i;
+    //
+    // var filteredCoffees = [];
+    // console.log(nameList);
+    // console.log(selectedName);
+    //
+    // // filter = input.value.toUpperCase();
+    // // ul = document.getElementById("myUL");
+    // // li = ul.getElementsByTagName("li");
+    // for (i = 0; i < nameList.length; i++) {
+    //     // a = li[i].getElementsByTagName("a")[0];
+    //     a = nameList[i];
+    //     if (a.toLowerCase().indexOf(selectedName) > -1) {
+    //         filteredCoffees.push(coffees[i]);
+    //     }
+    //     // else {
+    //     //     nameList[i].style.display = "none";
+    //     // }
+    // }
+    //
+    // coffees.forEach(function(coffee) {
+    //     if (coffee.name == selectedName) {
+    //         filteredCoffees.push(coffee);
+    //     }
+    // });
+    // tbody.innerHTML = renderCoffees(filteredCoffees);
 
-
-    console.log(nameList);
-
-    // filter = input.value.toUpperCase();
-    // ul = document.getElementById("myUL");
-    // li = ul.getElementsByTagName("li");
-    for (i = 0; i < nameList.length; i++) {
-        // a = li[i].getElementsByTagName("a")[0];
-        a = nameList[i];
-        if (a.innerHTML.toUpperCase().indexOf(selectedName) > -1) {
-            nameList[i].style.display = "";
-        } else {
-            nameList[i].style.display = "none";
-        }
-    }
 }
 
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
-var nameSelection = document.querySelector('#name-selection');
+
 
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+// submitButton.addEventListener('click', myFunction);
