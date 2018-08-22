@@ -2,9 +2,11 @@
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
+var addButton = document.querySelector('#add');
 var roastSelection = document.querySelector('#roast-selection');
 var nameSelection = document.querySelector('#name-selection');
-
+var roastInput = document.querySelector('#roast-input');
+var nameInput = document.querySelector('#name-input');
 
 function renderCoffee(coffee) {
     var html = '<div class="d-block col-6 coffee mb-4">';
@@ -31,21 +33,28 @@ function updateCoffees(e) {
     var lowercaseName = selectedName.toLowerCase();
     var filteredCoffees = [];
     console.log(selectedRoast);
-    coffees.forEach(function(coffee) {
-        if (coffee.name.toLowerCase() == lowercaseName) {
+
+    if (selectedRoast === "all"){
+        coffees.forEach(function(coffee) {
+            filteredCoffees.push(coffee);
             if (coffee.roast === selectedRoast) {
-                filteredCoffees.push(coffee);
-                console.log(selectedName);
-                console.log(selectedRoast);
-            }else{
+                if (coffee.name.toLowerCase().indexOf(lowercaseName) > -1) {
+                    filteredCoffees.push(coffee);
+                    console.log(selectedName);
+                    console.log(selectedRoast);
+                }
+            }
+        });
+
+    }else{
+        coffees.forEach(function (coffee) {
+        if (coffee.roast === selectedRoast) {
+            if (coffee.name.toLowerCase().indexOf(lowercaseName) > -1) {
                 filteredCoffees.push(coffee);
                 console.log(selectedName);
                 console.log(selectedRoast);
             }
         }
-
-
-
 
         // Attempted to sort coffee by name with else if after sorting by roast in the if statement
         // else if(selectedName === ""){
@@ -54,7 +63,8 @@ function updateCoffees(e) {
         //         console.log(filteredCoffees);
         //     }
         // }
-    });
+    })
+        };
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
@@ -79,56 +89,43 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+function addCoffee (e){
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var object = {
+        id: coffees.length + 1,
+        name: nameInput.value,
+        roast: roastInput.value
+    };
 
-var nameList =[];
+    console.log(object);
+    return coffees.push(object);
+};
 
-coffees.forEach(
-    function (element, index){
-        nameList.push(coffees[index].name);
-        return nameList;
-    }
-)
+console.log(nameInput);
+console.log(roastInput);
 
-console.log(nameList);
-var selectedName = nameSelection.value;
-
-
-function myFunction() {
-    // e.preventDefault(); // don't submit the form, we just want to update the data
-    //
-    // var input, filter, ul, li, a, i;
-    //
-    // var filteredCoffees = [];
-    // console.log(nameList);
-    // console.log(selectedName);
-    //
-    // // filter = input.value.toUpperCase();
-    // // ul = document.getElementById("myUL");
-    // // li = ul.getElementsByTagName("li");
-    // for (i = 0; i < nameList.length; i++) {
-    //     // a = li[i].getElementsByTagName("a")[0];
-    //     a = nameList[i];
-    //     if (a.toLowerCase().indexOf(selectedName) > -1) {
-    //         filteredCoffees.push(coffees[i]);
-    //     }
-    //     // else {
-    //     //     nameList[i].style.display = "none";
-    //     // }
-    // }
-    //
-    // coffees.forEach(function(coffee) {
-    //     if (coffee.name == selectedName) {
-    //         filteredCoffees.push(coffee);
-    //     }
-    // });
-    // tbody.innerHTML = renderCoffees(filteredCoffees);
-
-}
-
-
-
-
-tbody.innerHTML = renderCoffees(coffees);
+// var nameList =[];
+//
+// coffees.forEach(
+//     function (element, index){
+//         nameList.push(coffees[index].name);
+//         return nameList;
+//     }
+// )
+//
+// console.log(nameList);
+// var selectedName = nameSelection.value;
+//
+//
+// function myFunction() {
+//
+//
+// }
+//
+//
+//
+//
+// tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-// submitButton.addEventListener('click', myFunction);
+addButton.addEventListener('click', addCoffee);

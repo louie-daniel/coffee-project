@@ -33,6 +33,7 @@
     <form class="mr-0 pb-1">
         <li for = "roast-selection" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
         <select id ="roast-selection" class = "custom-select custom-select">
+            <option>all</option>
             <option>light</option>
             <option>medium</option>
             <option>dark</option>
@@ -40,8 +41,8 @@
         </li>
             <li for="name-selection" class="list-group-item list-group-item-action border-0">
                 <div class="form-group">
-                    <label for="coffeeName"><strong>Coffee Name</strong></label>
-                    <input type="text" class="form-control" id="name-selection" onkeyup="myFunction()">
+                    <label for="name-selection"><strong>Coffee Name</strong></label>
+                    <input type="text" class="form-control" id="name-selection" oninput="updateCoffees()">
                 </div>
             </li>
         <button id="submit" type="submit" class="btn btn-primary w-100">SUBMIT</button>
@@ -56,8 +57,8 @@
 
 
     <form class="mr-0">
-        <li for = "roast-selection" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
-            <select id ="roast-selection" class = "custom-select custom-select">
+        <li for = "roast-input" class="list-group-item list-group-item-action border-0"><strong>Roast</strong>
+            <select id ="roast-input" class = "custom-select custom-select">
                 <option>light</option>
                 <option>medium</option>
                 <option>dark</option>
@@ -65,12 +66,12 @@
         </li>
         <li class="list-group-item list-group-item-action border-0">
             <div class="form-group">
-                <label for="coffeeName"><strong>Coffee Name</strong></label>
-                <input type="text" class="form-control" id="coffeeName">
+                <label for="name-input"><strong>Name</strong></label>
+                <input type="text" class="form-control" id="name-input">
                 <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
         </li>
-        <button id="submit" type="submit" class="btn btn-primary w-100">SUBMIT</button>
+        <button id="add" type="submit" class="btn btn-primary w-100">ADD COFFEE</button>
     </form>
 
 
