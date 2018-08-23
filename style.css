@@ -8,6 +8,10 @@ td, th {
     padding: 5px 10px;
 }
 
+body {
+    background-color: #dde0e2
+}
+
 h1 {
     text-align: center;
     top calc(50% - .75em);
@@ -21,12 +25,17 @@ h1 {
 img {
     height: 300px;
     display: block;
-
-
 }
 
 .jumbotron {
     position: relative;
-    /*background-image: url('/coffee-project/coffee-beans.jpg');*/
+    background-color: #dde0e2;
 }
+
+.btn {
+    background-color: #6f8fbe
+    border: none;
+}
+
+
 
